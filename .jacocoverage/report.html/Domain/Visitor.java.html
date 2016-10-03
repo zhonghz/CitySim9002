@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Visitor.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;CitySim9002&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Domain</a> &gt; <span class="el_source">Visitor.java</span></div><h1>Visitor.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Domain;
+
+import java.util.Random;
+
+/**
+ *
+ * @author Huizhi
+ */
+<span class="fc" id="L14">public class Visitor {</span>
+    //Generate a visitor type of visitor
+    public String getType(Random random) {
+<span class="fc" id="L17">        String[] type = new String[4];</span>
+<span class="fc" id="L18">        type[0] = &quot;Student&quot;;</span>
+<span class="fc" id="L19">	type[1] = &quot;Professor&quot;;</span>
+<span class="fc" id="L20">	type[2] = &quot;Business Person&quot;;</span>
+<span class="fc" id="L21">	type[3] = &quot;Blogger&quot;;</span>
+<span class="fc" id="L22">	int num = random.nextInt(4);</span>
+<span class="fc" id="L23">	return type[num];</span>
+    }
+    
+    //Identify whether the visitor like the location or not
+    public boolean likeLocation(String type, String location) {
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        if (type == &quot;Student&quot;) {</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">            if (location == &quot;The Cathedral of Learning&quot;) {</span>
+<span class="nc" id="L30">                return false;</span>
+            } else {
+<span class="nc" id="L32">                return true;</span>
+            }
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        } else if (type == &quot;Professor&quot;) {</span>
+<span class="fc" id="L35">            return true;		</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        } else if (type == &quot;Business Person&quot;) {</span>
+<span class="fc bfc" id="L37" title="All 4 branches covered.">            if (location == &quot;Squirrel Hill&quot; || location == &quot;Downtown&quot;) {</span>
+<span class="fc" id="L38">                return true;</span>
+            } else {
+<span class="fc" id="L40">                return false;</span>
+            }						
+        } else {
+<span class="fc" id="L43">            return false;</span>
+        }		
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

@@ -9,19 +9,19 @@ package Domain;
  *
  * @author AsphaltPanthers
  */
-<span class="nc" id="L12">public class Validator {</span>
+<span class="fc" id="L12">public class Validator {</span>
     public boolean validateArguments(String[] args) {
-<span class="nc bnc" id="L14" title="All 4 branches missed.">        return validateNumberOfArguments(args) &amp;&amp; validateArgumentType(args);</span>
+<span class="pc bpc" id="L14" title="2 of 4 branches missed.">        return validateNumberOfArguments(args) &amp;&amp; validateArgumentType(args);</span>
     }
     
     public boolean validateNumberOfArguments(String[] args) {
-<span class="nc bnc" id="L18" title="All 2 branches missed.">        return args.length == 1;</span>
+<span class="pc bpc" id="L18" title="1 of 2 branches missed.">        return args.length == 1;</span>
     }
     
     public boolean validateArgumentType(String[] args) {
         try {
-<span class="nc" id="L23">            Integer.parseInt(args[0]);</span>
-<span class="nc" id="L24">            return true;</span>
+<span class="fc" id="L23">            Integer.parseInt(args[0]);</span>
+<span class="fc" id="L24">            return true;</span>
 <span class="nc" id="L25">        } catch (Exception e) {</span>
 <span class="nc" id="L26">            return false;</span>
         }
