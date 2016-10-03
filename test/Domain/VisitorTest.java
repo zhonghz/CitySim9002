@@ -47,7 +47,7 @@ public class VisitorTest {
         Random mockRandom = mock(Random.class);
         Visitor mockVisitor = mock(Visitor.class);
         Location mockLocation = mock(Location.class);
-        when(mockVisitor.getType(mockRandom)).thenReturn("Sutdent");
+        when(mockVisitor.getType(mockRandom)).thenReturn("Student");
         when(mockLocation.getLocation(mockRandom, 1)).thenReturn("The Cathedral of Learning");
         Assert.assertFalse(mockVisitor.likeLocation("Student", mockLocation.getLocation(mockRandom, 1)));
     }

@@ -21,9 +21,9 @@ public class LocationTest {
     //The location shall not be "Leaving"
     @Test
     public void canNotLeaveInFirstVisit() {
-        Random random = new Random();        
+        Random mockRandom = mock(Random.class);
         Location location = new Location();
-        Assert.assertFalse(location.getLocation(random,1).equals("Leaving"));
+        Assert.assertFalse(location.getLocation(mockRandom,1).equals("Leaving"));
     }
     
     //After the first visit, the visitor can leave the city
