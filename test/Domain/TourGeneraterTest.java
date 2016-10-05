@@ -57,7 +57,7 @@ public class TourGeneraterTest {
     //When visitor has left the city which means stop of the method
     //The last element of returned list should be "Visitor * has left the city."
     @Test
-    public void ifVisitorCanLeaveTheCiry() {
+    public void ifVisitorCanLeaveTheCity() {
         Random mockRandom = mock(Random.class);
         //Location mockLocation = mock(Location.class);
         //Visitor mockVisitor = mock(Visitor.class);
