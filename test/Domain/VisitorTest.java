@@ -19,14 +19,6 @@ import static org.mockito.Mockito.when;
 public class VisitorTest {
     
     @Test
-    public void ifOneOfFourType() {
-        Random mockRandom = mock(Random.class);        
-        when(mockRandom.nextInt(4)).thenReturn(3);
-        Visitor visitor = new Visitor();
-        Assert.assertNotSame("Teacher",visitor.getType(mockRandom));
-    }
-    
-    @Test
     public void ifVisitorTypeIsOneOfTheFourType() {
         Random mockRandom = mock(Random.class);        
         when(mockRandom.nextInt(4)).thenReturn(3);
@@ -36,14 +28,14 @@ public class VisitorTest {
     
     
     @Test
-    public void ifVisitorLikeTheLocation() {
+    public void ifVisitorLikeTheLocationAssertTrue() {
         Random mockRandom = mock(Random.class);
         Visitor visitor = new Visitor();        
         Assert.assertTrue(visitor.likeLocation("Business Person","Downtown"));
     }
     
     @Test
-    public void ifVisitorDislikeTheLocation() {
+    public void ifVisitorDislikeTheLocationAssertFalse() {
         Random mockRandom = mock(Random.class);
         Visitor mockVisitor = mock(Visitor.class);
         Location mockLocation = mock(Location.class);

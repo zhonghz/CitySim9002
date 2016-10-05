@@ -6,8 +6,12 @@
 package Program;
 
 import Domain.Location;
+import Domain.TourGenerater;
+import Domain.VisitorGenerater;
 import Domain.Validator;
 import Domain.Visitor;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -27,26 +31,22 @@ public class CitySim9002 {
             System.exit(0);
         }
         Random random = new Random(seed);
-        for (int i = 1; i < 6; i++) {
-            Visitor visitor = new Visitor();
-            Location location = new Location();
-            String type = visitor.getType(random);
+        
+        //Generate five visitors
+        VisitorGenerater visitors = new VisitorGenerater();
+        List<String> visitorlist = visitors.generateVisitors(random);        
+        
+        //Display information of visitors one by one
+        for (int i = 1; i <= visitorlist.size(); i++) {
+            String type = visitorlist.get(i - 1);
             System.out.println("Visitor " + i + " is a " + type + ".");
-            int count = 1;
-            String newloc;
-            do{
-            	newloc = location.getLocation(random, count);			
-            	System.out.println("Visitor " + i + " is going to " + newloc + "!");
-            	if(visitor.likeLocation(type, newloc)) {
-            		System.out.println("Visitor " + i + " did like " + newloc + ".");
-            	} else {
-            		System.out.println("Visitor " + i + " did not like " + newloc + ".");
-            	}
-            	count++;                      	
-            }                       							
-            while (newloc != "Leaving");
-			
-            System.out.println("Visitor " + i + " has left the city. ");
+            
+            //Gnerate locations of the tour
+            TourGenerater tour = new TourGenerater();
+            List<String> printlist = tour.generateTour(random,i,type);
+            for(int j = 0;j < printlist.size();j++){
+                System.out.println(printlist.get(j));
+            } 
             System.out.println("***");
         }
         

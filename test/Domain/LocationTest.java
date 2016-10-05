@@ -26,6 +26,17 @@ public class LocationTest {
         Assert.assertFalse(location.getLocation(mockRandom,1).equals("Leaving"));
     }
     
+    //For the first visit, the visitor should visit one of the four locations
+    //given iteration number 1 and input location id as 3
+    //returned value should equal to "Downtown"
+    @Test
+    public void firstVisitOneOfFour() {
+        Random mockRandom = mock(Random.class);
+        when(mockRandom.nextInt(4)).thenReturn(3);
+        Location location = new Location();
+        Assert.assertEquals("Downtown",location.getLocation(mockRandom, 1));
+    }
+    
     //After the first visit, the visitor can leave the city
     //When count is 3, which means it is in the third iteration
     //Location id is 4 should equal to "Leaving"
@@ -36,6 +47,8 @@ public class LocationTest {
         Location location = new Location();
         Assert.assertEquals("Leaving",location.getLocation(mockRandom, 3));
     }
+    
+    
     
     
     
