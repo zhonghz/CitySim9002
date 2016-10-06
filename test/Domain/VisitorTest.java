@@ -41,7 +41,7 @@ public class VisitorTest {
     public void ifProfessorLikeTheLocationAssertTrue() {
         Random mockRandom = mock(Random.class);
         Visitor visitor = new Visitor();        
-        Assert.assertFalse(visitor.likeLocation("Professor","The Point"));
+        Assert.assertTrue(visitor.likeLocation("Professor","The Point"));
     }
     
     //Check to verify Blogger didn't like the Squirrel Hill
@@ -49,7 +49,7 @@ public class VisitorTest {
     public void ifBloggerDislikeTheLocationAssertFalse() {
         Random mockRandom = mock(Random.class);
         Visitor visitor = new Visitor();        
-        Assert.assertTrue(visitor.likeLocation("Blogger","Downtown"));
+        Assert.assertFalse(visitor.likeLocation("Blogger","Downtown"));
     }
     
     //Check to verify Student doesn't likes The Cathedral of Learning
