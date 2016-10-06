@@ -21,14 +21,14 @@ public class TourGeneraterTest {
     
     //Check if string of visit location information is added to returned string list
     //The location information should be the first element of returned string
-    //mock random class and stub nextInt method to limit the teration times
+    //mock random class and stub nextInt method to limit the teration times and set location value
     //The returned string will equal to the given left string
     @Test
     public void ifRetunedListStoreLocationInfo() {
         Random mockRandom = mock(Random.class);
         TourGenerater tour = new TourGenerater();
         Visitor mockVisitor = mock(Visitor.class);
-        when(mockRandom.nextInt(any(int.class))).thenReturn(2).thenReturn(4);
+        when(mockRandom.nextInt(any(int.class))).thenReturn(2).thenReturn(4);        
         List<String> printlist = tour.generateTour(mockRandom,3, mockVisitor);
         Assert.assertEquals("Visitor 3 is going to The Point!",printlist.get(0));
     }
@@ -40,10 +40,10 @@ public class TourGeneraterTest {
     public void ifReturnedListStoreLikeInfo() {
         Random mockRandom = mock(Random.class);
         TourGenerater tour = new TourGenerater();
-        Visitor visitor = new Visitor();
-        visitor.type = "Professor";  
+        Visitor mockVisitor = mock(Visitor.class);
+        when(mockVisitor.getType()).thenReturn("Professor");
         when(mockRandom.nextInt(any(int.class))).thenReturn(1).thenReturn(3).thenReturn(1).thenReturn(4);
-        List<String> printlist = tour.generateTour(mockRandom,1,visitor);        
+        List<String> printlist = tour.generateTour(mockRandom,1,mockVisitor);        
         Assert.assertEquals("Visitor 1 did like Downtown.",printlist.get(3));
     }
     
@@ -54,11 +54,11 @@ public class TourGeneraterTest {
     @Test
     public void ifReturnedListStoreDislikeInfo() {
         Random mockRandom = mock(Random.class);
-        Visitor visitor = new Visitor();
-        visitor.type = "Student";
         TourGenerater tour = new TourGenerater();
+        Visitor mockVisitor = mock(Visitor.class);
+        when(mockVisitor.getType()).thenReturn("Student");
         when(mockRandom.nextInt(any(int.class))).thenReturn(0).thenReturn(1).thenReturn(4);
-        List<String> printlist = tour.generateTour(mockRandom,2,visitor);     
+        List<String> printlist = tour.generateTour(mockRandom,2,mockVisitor);     
         Assert.assertEquals("Visitor 2 did not like The Cathedral of Learning.",printlist.get(1));
     }
         
@@ -68,7 +68,6 @@ public class TourGeneraterTest {
     @Test
     public void ifVisitorCanLeaveTheCity() {
         Random mockRandom = mock(Random.class);
-        Location mockLocation = mock(Location.class);
         Visitor mockVisitor = mock(Visitor.class);
         TourGenerater tour = new TourGenerater();
         when(mockRandom.nextInt(any(int.class))).thenReturn(0).thenReturn(1).thenReturn(4);

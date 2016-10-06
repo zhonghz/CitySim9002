@@ -22,7 +22,10 @@ public class Visitor {
     public void setType(String type) {
         this.type = type;
     }
-    
+    public String getType() {
+        return type;
+    }
+
     //Identify whether the visitor like the location or not
     public boolean likeLocation(String type, String location) {
         if (type == "Student") {
@@ -43,5 +46,4 @@ public class Visitor {
             return false;
         }		
     }
-    
 }

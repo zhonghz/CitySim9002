@@ -17,6 +17,7 @@ public class TourGenerater {
     //Generate list of tour information
     public List<String> generateTour(Random random, int id, Visitor visitor){
         Visitor newvisitor = visitor;
+        
         Location location = new Location();       
         List<String> printlist = new ArrayList<String>(); 
         String newloc;
@@ -24,7 +25,7 @@ public class TourGenerater {
         newloc = location.getLocation(random, count);
         do{           		
             printlist.add("Visitor " + id + " is going to " + newloc + "!");
-            if(visitor.likeLocation(newvisitor.type, newloc)) {
+            if(visitor.likeLocation(newvisitor.getType(), newloc)) {
                 printlist.add("Visitor " + id + " did like " + newloc + ".");
             } else {
                 printlist.add("Visitor " + id + " did not like " + newloc + ".");
