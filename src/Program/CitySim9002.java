@@ -42,8 +42,10 @@ public class CitySim9002 {
             System.out.println("Visitor " + i + " is a " + type + ".");
             
             //Gnerate locations of the tour
+            Visitor visitor = new Visitor();
+            visitor.setType(type);
             TourGenerater tour = new TourGenerater();
-            List<String> printlist = tour.generateTour(random,i,type);
+            List<String> printlist = tour.generateTour(random,i,visitor);
             for(int j = 0;j < printlist.size();j++){
                 System.out.println(printlist.get(j));
             } 

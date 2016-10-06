@@ -20,6 +20,7 @@ import static org.mockito.Mockito.when;
 
 public class VisitorGeneraterTest {
     //generateVisitors should generate five visitors
+    //mock random class as input parameter
     //The size of returned list should be five.
     @Test
     public void ifSizeOfReturnedListEqualsFive() {
@@ -29,6 +30,7 @@ public class VisitorGeneraterTest {
     }
     
     //generateVisitors should generate five visitors and stpr type of each generated visitor into the returned list.
+    //Mock visitor and stub getType method to return "Student"
     //The string in the returned list should be the type of visitor.
     @Test
     public void ifReturnListStoresTypeName() {

@@ -12,15 +12,15 @@ import java.util.Random;
  * @author Huizhi
  */
 public class Visitor {
+    public String type;
+    String[] typelist={"Student","Professor","Business Person","Blogger"};
     //Generate a visitor type of visitor
     public String getType(Random random) {
-        String[] type = new String[4];
-        type[0] = "Student";
-	type[1] = "Professor";
-	type[2] = "Business Person";
-	type[3] = "Blogger";
-	int num = random.nextInt(4);
-	return type[num];
+	int num = random.nextInt(4);       
+	return typelist[num];       
+    }
+    public void setType(String type) {
+        this.type = type;
     }
     
     //Identify whether the visitor like the location or not
