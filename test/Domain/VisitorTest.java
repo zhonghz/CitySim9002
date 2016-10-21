@@ -16,7 +16,7 @@ import static org.mockito.Mockito.when;
  *
  * @author Huizhi
  */
-public class VisitorTest {
+public class VisitorTest {  
     //Test getType(Random random) method
     //Given a random number between 0-3 as input parameter to get a visitor type
     //Stub the nextint() method to set the random number as 3
@@ -39,40 +39,53 @@ public class VisitorTest {
         Assert.assertEquals("Student",visitor.getType());
     }
     
-    //Test if likeLocation method works for Business Person
-    //Check to verify Business Person likes Downtown
+    String[] location = {"The Cathedral of Learning","Squirrel Hill","The Point","Downtown"};
+    //Test if likeLocation method works for Student
+    //Check to verify Student like/dislike different locations
     @Test
-    public void ifBusinessPersonLikeTheLocationAssertTrue() {
+    public void testStudentPreference() {
         Visitor visitor = new Visitor();
-        visitor.type = "Business Person";        
-        Assert.assertTrue(visitor.likeLocation("Business Person","Downtown"));
+        visitor.type = "Student";
+        for(int i = 1; i < location.length; i++) {
+            Assert.assertTrue(visitor.likeLocation("Student",location[i]));
+        }
+        Assert.assertFalse(visitor.likeLocation("Student",location[0]));
+        
     }
     
     //Test if likeLocation method works for Professor
-    //Check to verify Professor likes The Point
+    //Check to verify Professor like/dislike different locations
     @Test
-    public void ifProfessorLikeTheLocationAssertTrue() {
+    public void testProfessorPreference() {
         Visitor visitor = new Visitor();
-        visitor.type = "Professor";        
+        visitor.type = "Professor";
+        for(int i = 1; i < location.length; i++) {
+            Assert.assertTrue(visitor.likeLocation("Professor",location[i]));
+        }        
         Assert.assertTrue(visitor.likeLocation("Professor","The Point"));
     }
     
     //Test if likeLocation method works for Blogger
-    //Check to verify Blogger didn't like the Squirrel Hill
+    //Check to verify Blogger like/dislike different locations
     @Test
-    public void ifBloggerDislikeTheLocationAssertFalse() {
+    public void testBloggerPreference() {
         Visitor visitor = new Visitor();
-        visitor.type = "Blogger";           
-        Assert.assertFalse(visitor.likeLocation("Blogger","Downtown"));
+        visitor.type = "Blogger";
+        for(int i = 1; i < location.length; i++) {
+            Assert.assertFalse(visitor.likeLocation("Blogger",location[i]));
+        }        
     }
     
-    //Test if likeLocation method works for Student
-    //Check to verify Student doesn't likes The Cathedral of Learning
+    //Test if likeLocation method works for Business Person
+    //Check to verify Business Person like/dislike different locations
     @Test
-    public void ifVisitorDislikeTheLocationAssertFalse() {
+    public void testBusinessPersonPreference() {
         Visitor visitor = new Visitor();
-        visitor.type = "Student"; 
-        Assert.assertFalse(visitor.likeLocation("Student","The Cathedral of Learning"));
+        visitor.type = "Business Person";
+        Assert.assertTrue(visitor.likeLocation("Business Person",location[1]));
+        Assert.assertTrue(visitor.likeLocation("Business Person",location[3]));
+        Assert.assertFalse(visitor.likeLocation("Business Person",location[0]));
+        Assert.assertFalse(visitor.likeLocation("Business Person",location[2]));
     }
     
 }

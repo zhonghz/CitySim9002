@@ -15,8 +15,7 @@ import static org.mockito.Mockito.when;
  *
  * @author Huizhi
  */
-public class LocationTest {
-    
+public class LocationTest {   
     //For the first visit, the visitor should visit one of the four locations
     //given iteration number 1 and input location id as 3,
     //returned value should equal to "Downtown"
